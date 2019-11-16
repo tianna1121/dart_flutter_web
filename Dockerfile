@@ -17,8 +17,8 @@ RUN apt-get install dart -y
 ENV PATH="${PATH}:/usr/lib/dart/bin/"
 ENV PATH="${PATH}:/root/.pub-cache/bin"
 
-RUN pub global activate webdev
-RUN pub global activate stagehand
+RUN flutter pub global activate webdev
+RUN flutter pub global activate stagehand
 
 #
 # CODE-SERVER
