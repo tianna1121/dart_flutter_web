@@ -17,9 +17,6 @@ RUN apt-get install dart -y
 ENV PATH="${PATH}:/usr/lib/dart/bin/"
 ENV PATH="${PATH}:/root/.pub-cache/bin"
 
-RUN flutter pub global activate webdev
-RUN flutter pub global activate stagehand
-
 #
 # CODE-SERVER
 RUN wget https://github.com/cdr/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz
@@ -36,8 +33,6 @@ ENV PATH="${PATH}:/works/development/flutter/bin"
 RUN flutter precache
 
 
-
-
 #
 # FLUTTER CODE
 WORKDIR /works/development/flutter/examples/hello_world/
@@ -45,3 +40,5 @@ RUN flutter packages upgrade
 RUN flutter pub get
 RUN flutter --version
 RUN flutter config --enable-web
+RUN flutter pub global activate webdev
+RUN flutter pub global activate stagehand
