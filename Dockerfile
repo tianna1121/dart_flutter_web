@@ -19,8 +19,8 @@ ENV PATH="${PATH}:/root/.pub-cache/bin"
 
 #
 # CODE-SERVER
-RUN wget https://github.com/cdr/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz
-RUN tar xzf code-server1.939-vsc1.33.1-linux-x64.tar.gz -C ./ --strip-components 1
+#RUN wget https://github.com/cdr/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz
+#RUN tar xzf code-server1.939-vsc1.33.1-linux-x64.tar.gz -C ./ --strip-components 1
 
 
 # FLUTTER
@@ -32,8 +32,6 @@ RUN tar xf ../flutter_linux_v1.12.1-dev.tar.xz
 ENV PATH="${PATH}:/works/development/flutter/bin"
 RUN flutter precache
 
-
-#
 # FLUTTER CODE
 WORKDIR /works/development/flutter/examples/hello_world/
 RUN flutter packages upgrade
@@ -41,4 +39,9 @@ RUN flutter pub get
 RUN flutter --version
 RUN flutter config --enable-web
 RUN flutter pub global activate webdev
-RUN flutter pub global activate stagehand
+#RUN flutter pub global activate stagehand
+
+# CHDIR
+RUN mkdir /works/apps/
+WORKDIR /works/apps/
+
